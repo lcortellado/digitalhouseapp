@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "react-native";
+import { View } from "react-native";
+import { Home } from "./src/screens/Home";
+import { useFonts } from "expo-font";
+import { Loading } from "./src/components/Loading/index";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "Avenir-Black": require("./assets/fonts/AvenirLTStd-Black.otf"),
+    "Avenir-Book": require("./assets/fonts/AvenirLTStd-Book.otf"),
+    "Avenir-Roman": require("./assets/fonts/AvenirLTStd-Roman.otf"),
+  });
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1 }}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      {fontsLoaded ? <Home /> : <Loading />}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
