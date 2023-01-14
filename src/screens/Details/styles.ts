@@ -5,8 +5,10 @@ export const styles = StyleSheet.create({
     flex:1,
   },
   headingContainer: {
+    justifyContent:'flex-end',
     backgroundColor: '#CFD6FF',
     paddingHorizontal: 20,
+    height: 150
   },
   imageContainer:{
     paddingHorizontal: 20

@@ -1,9 +1,8 @@
 import { StatusBar } from "react-native";
 import { View } from "react-native";
-import { Home } from "./src/screens/Home";
 import { useFonts } from "expo-font";
 import { Loading } from "./src/components/Loading/index";
-import { Product } from "./src/screens/Product/index";
+import { Routes } from "./src/routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,7 +17,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <Product /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </View>
   );
 }

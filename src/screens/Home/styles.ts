@@ -16,15 +16,30 @@ export const styles = StyleSheet.create({
     marginVertical: 15
   },
   flatList:{
-    height: 350,
-    width: '90%',
+    height: 390,
+    width: '100%',
     padding: 10,
-    borderRadius: 10
+    borderRadius: 10,
+    backgroundColor: '#FFFFFF'
   },
   bottom: {
     position: 'absolute',
-    bottom: 10,
+    bottom: 20,
     left: 20,
     right: 20,
+  },
+  buttonContainer:{
+    position: 'absolute',
+    width: '100%',
+    bottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  buttomWon:{
+  width: '45%'
+
+  },
+  buttomRedeemed:{
+    width: "45%"
   }
 });

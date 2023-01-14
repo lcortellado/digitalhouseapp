@@ -3,11 +3,15 @@ import { Text, View } from "react-native";
 
 import { styles } from "./styles";
 
-export function TotalPoints() {
+interface Props {
+  total: number;
+}
+
+export function TotalPoints({ total }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.date}> Diciembre</Text>
-      <Text style={styles.points}>10,00.00 pts</Text>
+      <Text style={styles.points}>{total} pts</Text>
     </View>
   );
 }
