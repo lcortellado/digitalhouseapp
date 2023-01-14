@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
+import NumberFormat from "react-number-format";
 
 import { styles } from "./styles";
 

@@ -46,7 +46,8 @@ export const styles = StyleSheet.create({
   image: {
     width: 55,
     height: 55,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+    borderRadius:10
   },
   number:{
     fontFamily:'Avenir-Black',

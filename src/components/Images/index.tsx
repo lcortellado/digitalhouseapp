@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Image } from "react-native";
 
 import { styles } from "./styles";
+import { Loading } from "../Loading";
 
-import imageProduct from "./../../assets/default-image.png";
+import imageDefault from "./../../assets/default-image.png";
 
-export function Images() {
+type Props = {
+  image: string;
+};
+
+export function Images({ image }: Props) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 4000);
   return (
     <View style={styles.container}>
-      <Image source={imageProduct} style={styles.image} />
+      <Image
+        defaultSource={imageDefault}
+        source={{ uri: image }}
+        style={styles.image}
+      />
     </View>
   );
 }

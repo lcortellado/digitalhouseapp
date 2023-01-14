@@ -8,34 +8,41 @@ import { Loading } from "../../components/Loading/index";
 import { TotalPoints } from "../../components/TotalPoints";
 import { Button } from "../../components/Button/index";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
+import { numberFormat } from "../../Utils/numberFormat";
 
 export function Home() {
   const [products, setProducts] = useState<any[]>([]);
   const [productsFilter, setProductsFilter] = useState<Object[]>([]);
   const [enabledFilterForCategory, setEnabledFilterForCategory] =
     useState<boolean>(false);
+  const [total, setTotal] = useState<any>("");
 
-  /**
-   * It returns the total number of points for all products that are marked as
-   * redemption
-   * @returns The total number of points for all products that are redemption.
-   */
   const getTotal = () => {
     const result = products.filter((item) => item.is_redemption);
     const total = result.reduce(
       (sum, item) => sum + item.points + item.points,
       0
     );
-    return total;
+    setTotal(numberFormat(total));
   };
 
   const handleFilterRedeemed = () => {
     const result = products.filter((item) => !item.is_redemption);
+    const total = result.reduce(
+      (sum, item) => sum + item.points + item.points,
+      0
+    );
+    setTotal(numberFormat(total));
     setProductsFilter(result);
   };
 
   const handleFilterWon = () => {
     const result = products.filter((item) => item.is_redemption);
+    const total = result.reduce(
+      (sum, item) => sum + item.points + item.points,
+      0
+    );
+    setTotal(numberFormat(total));
     setProductsFilter(result);
   };
 
@@ -58,6 +65,10 @@ export function Home() {
   };
 
   useEffect(() => {
+    getTotal();
+  }, [products]);
+
+  useEffect(() => {
     getProducts();
     setEnabledFilterForCategory(false);
     setProductsFilter([]);
@@ -67,7 +78,7 @@ export function Home() {
     <View style={styles.container}>
       <Heading title="Bienvenido de vuelta!" subtitle="Ruben Rodriguez" />
       <Text style={styles.text}>TUS PUNTOS</Text>
-      <TotalPoints total={getTotal()} />
+      <TotalPoints total={total} />
 
       <Text style={styles.text}>TUS MOVIMIENTOS</Text>
       <View style={styles.flatList}>
@@ -80,9 +91,9 @@ export function Home() {
               description={item.product}
               urlImage={item.image}
               date={item.createdAt}
-              points={item.points}
+              points={numberFormat(item.points)}
               is_redemption={item.is_redemption}
-              handleNavigateView={() => handleOpenDetails(item)}
+              handleNavigate={() => handleOpenDetails(item)}
             />
           )}
           showsVerticalScrollIndicator={false}

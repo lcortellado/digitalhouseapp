@@ -8,11 +8,16 @@ import imageProduct from "./../../assets/default-image.png";
 import { Images } from "../../components/Images";
 import { Button } from "../../components/Button";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { Loading } from "../../components/Loading";
+import moment from "moment";
+import { numberFormat } from "../../Utils/numberFormat";
 
 type RouteParams = {
   product: {
     product: string;
-    points: number;
+    points: string;
+    image: string;
+    createdAt: any;
   };
 };
 
@@ -29,13 +34,17 @@ export function Details() {
       </View>
 
       <View style={styles.imageContainer}>
-        <Images />
+        <Images image={product.image} />
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.textDetails}>{product.product}</Text>
-        <Text style={styles.textDate}>Comprado el 26 de enero, 2019</Text>
+        <Text style={styles.textDate}>{`Comprado el ${moment
+          .utc(product.createdAt)
+          .format("DD [de] MMMM, YYYY")}`}</Text>
         <Text style={styles.textDetails}>Con esta compra acomulaste:</Text>
-        <Text style={styles.textPoint}>{product.points} puntos</Text>
+        <Text style={styles.textPoint}>
+          {numberFormat(product.points)} puntos
+        </Text>
       </View>
 
       <View style={styles.bottom}>
