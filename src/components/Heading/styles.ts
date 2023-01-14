@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '800',
     fontFamily: 'Avenir-Black',
-    lineHeight: 27
+    lineHeight: 27,
    
   },
   subtitle : {

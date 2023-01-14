@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { Home } from "./src/screens/Home";
 import { useFonts } from "expo-font";
 import { Loading } from "./src/components/Loading/index";
+import { Product } from "./src/screens/Product/index";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,7 +18,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <Home /> : <Loading />}
+      {fontsLoaded ? <Product /> : <Loading />}
     </View>
   );
 }

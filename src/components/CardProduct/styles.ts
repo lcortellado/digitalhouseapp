@@ -22,7 +22,6 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
     color: '#000000',
   },
-
   date:{
     fontFamily:'Avenir-Roman',
     fontSize: 14,
@@ -30,7 +29,6 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
     color: '#000000',
 },
-
   iconViewLeft :{
     borderRadius: 4,
     flexDirection: 'row',
@@ -59,7 +57,7 @@ export const styles = StyleSheet.create({
   },
   icon:{
      marginLeft: 8,
-      width: 10, 
-      height: 10 
+    width: 10, 
+    height: 10 
   },
 });
