@@ -57,8 +57,17 @@ export const styles = StyleSheet.create({
     color: '#000000',
   },
   icon:{
-     marginLeft: 8,
+    marginLeft: 8,
     width: 10, 
     height: 10 
   },
+  textIcon:{
+    fontFamily:'Avenir-Black',
+    fontSize: 16,
+    textAlign: 'left',
+    lineHeight: 22,
+    fontWeight: '900',
+    color: '#00B833',
+    marginRight:1
+  }
 });

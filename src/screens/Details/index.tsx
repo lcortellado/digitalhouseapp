@@ -10,7 +10,7 @@ import { Button } from "../../components/Button";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Loading } from "../../components/Loading";
 import moment from "moment";
-import { numberFormat } from "../../Utils/numberFormat";
+import { numberFormat } from "../../Utils/utils";
 
 type RouteParams = {
   product: {

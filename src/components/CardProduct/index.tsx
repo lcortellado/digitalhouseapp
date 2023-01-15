@@ -1,11 +1,9 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { styles } from "./styles";
-import { Minus, Plus } from "phosphor-react-native";
 import moment from "moment";
 import "moment/min/locales";
 
-import icon from "./../../assets/default-image.png";
 import Subtract from "./../../assets/subtract.png";
 
 moment.locale("es");
@@ -44,9 +42,9 @@ export function CardProduct({
 
       <View style={styles.iconViewRight}>
         {is_redemption ? (
-          <Plus size={16} color="#00B833" weight="bold" />
+          <Text style={styles.textIcon}>+</Text>
         ) : (
-          <Minus size={20} color="#FF0000" weight="bold" />
+          <Text style={[styles.textIcon, { color: "#FF0000" }]}>-</Text>
         )}
 
         <Text style={styles.number}>{points}</Text>
