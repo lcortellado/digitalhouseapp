@@ -12,7 +12,7 @@ interface Props {
   description: string;
   urlImage: string;
   date: string;
-  points: string;
+  points: string | undefined;
   is_redemption: boolean;
   handleNavigate: () => void;
 }

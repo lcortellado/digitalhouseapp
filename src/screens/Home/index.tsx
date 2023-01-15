@@ -9,72 +9,29 @@ import { TotalPoints } from "../../components/TotalPoints";
 import { Button } from "../../components/Button/index";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { numberFormat } from "../../Utils/utils";
+import { useProduct } from "../../hooks/useProduct";
 
 export function Home() {
-  const [products, setProducts] = useState<any[]>([]);
-  const [productsFilter, setProductsFilter] = useState<Object[]>([]);
-  const [enabledFilterForCategory, setEnabledFilterForCategory] =
-    useState<boolean>(false);
-  const [total, setTotal] = useState<any>("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const getTotal = () => {
-    const result = products.filter((item) => item.is_redemption);
-    const total = result.reduce(
-      (sum, item) => sum + item.points + item.points,
-      0
-    );
-    setTotal(numberFormat(total));
-  };
-
-  const handleFilterRedeemed = () => {
-    const result = products.filter((item) => !item.is_redemption);
-    const total = result.reduce(
-      (sum, item) => sum + item.points + item.points,
-      0
-    );
-    setEnabledFilterForCategory(false);
-    setTotal(numberFormat(total));
-    setProductsFilter(result);
-  };
-
-  const handleFilterWon = () => {
-    const result = products.filter((item) => item.is_redemption);
-    const total = result.reduce(
-      (sum, item) => sum + item.points + item.points,
-      0
-    );
-    setEnabledFilterForCategory(false);
-    setTotal(numberFormat(total));
-    setProductsFilter(result);
-  };
-
   const isFocused = useIsFocused();
   const navigation = useNavigation();
 
-  const getProducts = async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch(
-        "https://6222994f666291106a29f999.mockapi.io/api/v1/products"
-      );
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      console.warn(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const {
+    getProducts,
+    handleFilterRedeemed,
+    handleFilterWon,
+    products,
+    productsFilter,
+    enabledFilterForCategory,
+    total,
+    isLoading,
+    getTotal,
+    setEnabledFilterForCategory,
+    setProductsFilter,
+  } = useProduct();
 
-  const handleOpenDetails = (product: string) => {
+  const handleOpenDetails = (product: any) => {
+    console.log(product);
     navigation.navigate("details", { product });
-  };
-
-  const handleGetProducts = () => {
-    getProducts();
-    setEnabledFilterForCategory(true);
-    setProductsFilter([]);
   };
 
   useEffect(() => {
@@ -89,7 +46,7 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-      <Heading title="Bienvenido de vuelta!" subtitle="Ruben Rodriguez" />
+      <Heading title="Bienvenido de vuelta!" subTitle="Ruben Rodriguez" />
       <Text style={styles.text}>TUS PUNTOS</Text>
       <TotalPoints total={total} />
 
@@ -128,7 +85,7 @@ export function Home() {
         </View>
       ) : (
         <View style={styles.bottom}>
-          <Button title="Todos" onPress={handleGetProducts} />
+          <Button title="Todos" onPress={getProducts} />
         </View>
       )}
     </View>

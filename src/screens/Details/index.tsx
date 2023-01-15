@@ -17,7 +17,7 @@ type RouteParams = {
     product: string;
     points: string;
     image: string;
-    createdAt: any;
+    createdAt: string;
   };
 };
 

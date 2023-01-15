@@ -11,3 +11,11 @@ export const numberFormat = (number: string) => {
     );
   }
 };
+
+export const totalSum = (data: any) => {
+  const total = data.reduce(
+    (sum: number, item: any) => sum + item.points + item.points,
+    0
+  );
+  return total;
+};
