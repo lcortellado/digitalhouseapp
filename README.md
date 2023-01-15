@@ -13,10 +13,13 @@
 #### Screenshots
 
 1. Listado de productos<br/>
-![Search](https://github.com/lcortellado/digitalhouseapp/blob/master/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2012%20-%202023-01-15%20at%2016.26.53.png)
+![Search](https://github.com/lcortellado/digitalhouseapp/blob/master/screenshots/List-products.png)
 
 2. Listado de productos ganados<br/>
-![Lista](https://github.com/lcortellado/digitalhouseapp/blob/master/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2012%20-%202023-01-15%20at%2016.27.02.png)
+![Lista](https://github.com/lcortellado/digitalhouseapp/blob/master/screenshots/List-product-ganados.png)
 
 3. Lista de productos canjeados<br/>
-![Detalle](https://github.com/lcortellado/digitalhouseapp/blob/master/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2012%20-%202023-01-15%20at%2016.27.09.png)
+![Detalle](https://github.com/lcortellado/digitalhouseapp/blob/master/screenshots/List-product-canjeados.png)
+
+4. Detalle Producto <br/>
+![Detalle](https://github.com/lcortellado/digitalhouseapp/blob/master/screenshots/Details-product.png)
