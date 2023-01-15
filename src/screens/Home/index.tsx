@@ -55,12 +55,15 @@ export function Home() {
   const getProducts = async () => {
     setIsLoading(true);
     try {
-      await fetch("https://6222994f666291106a29f999.mockapi.io/api/v1/products")
-        .then((res) => res.json())
-        .then((data) => setProducts(data));
-      setIsLoading(false);
+      const response = await fetch(
+        "https://6222994f666291106a29f999.mockapi.io/api/v1/products"
+      );
+      const data = await response.json();
+      setProducts(data);
     } catch (error) {
       console.warn(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 

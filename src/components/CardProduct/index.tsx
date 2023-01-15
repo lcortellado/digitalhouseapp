@@ -11,7 +11,7 @@ moment.locale("es");
 interface Props {
   description: string;
   urlImage: string;
-  date: any;
+  date: string;
   points: string;
   is_redemption: boolean;
   handleNavigate: () => void;

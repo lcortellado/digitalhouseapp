@@ -10,7 +10,9 @@ type Props = ButtonProps & {
 export function Button({ title, ...rest }: Props) {
   return (
     <TouchableOpacity style={styles.container} {...rest}>
-      <Text style={styles.text}>{title}</Text>
+      <Text testID="button-title" style={styles.text}>
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 }
