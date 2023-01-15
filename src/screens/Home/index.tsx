@@ -30,7 +30,6 @@ export function Home() {
   } = useProduct();
 
   const handleOpenDetails = (product: any) => {
-    console.log(product);
     navigation.navigate("details", { product });
   };
 
