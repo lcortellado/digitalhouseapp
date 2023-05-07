@@ -11,7 +11,7 @@ export default function App() {
     "Avenir-Roman": require("./assets/fonts/AvenirLTStd-Roman.otf"),
   });
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "red" }}>
       <StatusBar
         barStyle="dark-content"
         backgroundColor="transparent"
